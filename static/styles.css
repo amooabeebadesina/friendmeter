@@ -1,0 +1,12 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+}
+
+.main {
+    background: #ededed;
+    min-height: 100%;
+    padding: 50px;
+    display: grid;
+    grid: auto auto;
+}
