@@ -6,13 +6,12 @@ import (
 
 // Question is a
 type Question struct {
-	gorm.Model
+	BaseModel
 	Label   string   `json:"label"`
 	Options []Option `json:"options"`
 }
 
-var db := Db
-
-func (question Question) create() {
-
+// Create inserts the model into DB
+func (question Question) Create(Db *gorm.DB) {
+	Db.Create(&question)
 }

@@ -1,12 +1,8 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-)
-
 // User is a struct of user
 type User struct {
-	gorm.Model
-	Name string `json:"name"`
+	BaseModel
+	Name      string     `json:"name"`
 	Questions []Question `gorm:"many2many:question_user;"`
 }
