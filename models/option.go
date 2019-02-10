@@ -4,5 +4,5 @@ package models
 type Option struct {
 	BaseModel
 	Label      string `json:"label"`
-	QuestionID uint   `json:"-"`
+	QuestionID uint   `json:"-" sql:"index"`
 }

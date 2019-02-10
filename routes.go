@@ -10,8 +10,6 @@ import (
 	"github.com/go-chi/chi"
 )
 
-var jsonResponse utils.JSONResponse
-
 func indexRoute(w http.ResponseWriter, r *http.Request) {
 	paths := []string{
 		"templates/index.html",
@@ -43,10 +41,24 @@ func addQuestions(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func getAllQuestions(w http.ResponseWriter, r *http.Request) {
+	var question models.Question
+	res, err := question.GetAll(Db)
+	if err != nil {
+		utils.SendErrorResponse(w, "Error fetching questions")
+	} else {
+		utils.SendSuccessResponse(w, res)
+	}
+}
+
 func routers() *chi.Mux {
 
 	router.Get("/", indexRoute)
 	router.Post("/superhero", addQuestions)
+
+	router.Route("/api", func(r chi.Router) {
+		r.Get("/questions", getAllQuestions)
+	})
 
 	return router
 }
