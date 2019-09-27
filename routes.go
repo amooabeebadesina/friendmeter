@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"html/template"
-	"knowme/models"
-	"knowme/utils"
+	"models"
 	"net/http"
+	"utils"
 
 	"github.com/go-chi/chi"
 )

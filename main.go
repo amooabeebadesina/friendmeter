@@ -1,7 +1,7 @@
 package main
 
 import (
-	"knowme/models"
+	"models"
 	"net/http"
 	"os"
 
